@@ -1,6 +1,6 @@
 # Shop Tesztfeladat
 
-## Felhasznált technológiák: HTML5, CSS, JS, PHP, MYSQL (mysqli), Jquery
+## Felhasznált technológiák: HTML5, CSS3, JS, PHP, MYSQL (mysqli), Jquery
 
 ### Az alkalmazás futtatásához az alábbi lépéseket szükséges megtenni:
 
