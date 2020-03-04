@@ -6,28 +6,25 @@ var stepButtons = document.querySelectorAll(".steps button");
 
 /* filters */
 sizeSelect.addEventListener("change", function(evt) {
-    var selectPage = $(".counter")
-        .find(".current")
-        .text()
-        .trim();
-    sentAjaxRequest(selectPage);
+    selectAction();
 });
 
 colorSelect.addEventListener("change", function(evt) {
-    var selectPage = $(".counter")
-        .find(".current")
-        .text()
-        .trim();
-    sentAjaxRequest(selectPage);
+    selectAction();
 });
 
 orderSelect.addEventListener("change", function(evt) {
-    var selectPage = $(".counter")
-        .find(".current")
-        .text()
-        .trim();
-    sentAjaxRequest(selectPage);
+    selectAction();
 });
+
+function selectAction()  {
+    var selectPage = $(".counter")
+    .find(".current")
+    .text()
+    .trim();
+    sentAjaxRequest(selectPage);
+}
+
 
 $('.reset-btn').on('click', function() {
     resetAllItems();
