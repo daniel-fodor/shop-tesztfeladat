@@ -160,7 +160,7 @@ main {
   justify-content: space-between;
 }
 
-.products__filters {
+.products__filters form {
   display: flex;
   align-items: center;
 }
@@ -278,6 +278,18 @@ main {
 .products__item .normal-price.isSale {
     color: #aaa;
     text-decoration-line: line-through;
+}
+
+.reset-btn {
+    cursor: pointer;
+    background: #eee;
+    padding: 5px 15px;
+    border-radius: 2px;
+    transition: all .35s ease-in-out;
+}
+
+.reset-btn:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 .page-footer {

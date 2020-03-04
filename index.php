@@ -10,37 +10,42 @@
         <div class="products">
           <div class="products__top">
             <div class="products__filters">
-              <div class="filter-item">
-                <span>Szín</span>
-                <select name="color-select" id="colorSelect">
-                  <option value="all">Összes</option>
-                  <?php 
-                    foreach($colors as $color) {
-                      echo '<option value="'.$color['name'].'">'.$color['name'].'</option>';
-                    }
-                  ?>
-                </select>
-              </div>
-              <div class="filter-item">
-                <span>Méret</span>
-                <select name="size-select" id="sizeSelect">
-                  <option value="all">Összes</option>
-                  <?php 
-                    foreach($sizes as $size) {
-                        echo '<option value="'.$size['name'].'">'.$size['name'].'</option>';
-                    }
-                  ?>
-                </select>
-              </div>
-              <div class="filter-item">
-                <span>Rendezés</span>
-                <select name="order-select" id="orderSelect">
-                  <option value="1">legújabb termékek</option>
-                  <option value="2">legrégebbi termékek</option>
-                  <option value="3">legdrágább termékek</option>
-                  <option value="4">legolcsóbb termékek</option>
-                </select>
-              </div>
+              <form action="." method="POST">
+                <div class="filter-item">
+                  <span>Szín</span>
+                  <select name="color-select" id="colorSelect">
+                    <option value="all">Összes</option>
+                    <?php 
+                      foreach($colors as $color) {
+                        echo '<option value="'.$color['name'].'">'.$color['name'].'</option>';
+                      }
+                    ?>
+                  </select>
+                </div>
+                <div class="filter-item">
+                  <span>Méret</span>
+                  <select name="size-select" id="sizeSelect">
+                    <option value="all">Összes</option>
+                    <?php 
+                      foreach($sizes as $size) {
+                          echo '<option value="'.$size['name'].'">'.$size['name'].'</option>';
+                      }
+                    ?>
+                  </select>
+                </div>
+                <div class="filter-item">
+                  <span>Rendezés</span>
+                  <select name="order-select" id="orderSelect">
+                    <option value="1">legújabb termékek</option>
+                    <option value="2">legrégebbi termékek</option>
+                    <option value="3">legdrágább termékek</option>
+                    <option value="4">legolcsóbb termékek</option>
+                  </select>
+                </div>
+                <div>
+                  <button type="button" class="reset-btn">Reset</button>
+                </div>
+              </form>
             </div>
 
             <div class="products__pagination">

@@ -6,33 +6,48 @@ var stepButtons = document.querySelectorAll(".steps button");
 
 /* filters */
 sizeSelect.addEventListener("change", function(evt) {
-    var selectedVal = evt.target.value;
-    var selectPage = $(".counter").find('.current').text().trim();
-    sentAjaxRequest(selectPage, selectedVal, "size");
+    var selectPage = $(".counter")
+        .find(".current")
+        .text()
+        .trim();
+    sentAjaxRequest(selectPage);
 });
 
 colorSelect.addEventListener("change", function(evt) {
-    var selectedVal = evt.target.value;
-    var selectPage = $(".counter").find('.current').text().trim();
-    sentAjaxRequest(selectPage, selectedVal, "color");
+    var selectPage = $(".counter")
+        .find(".current")
+        .text()
+        .trim();
+    sentAjaxRequest(selectPage);
 });
 
 orderSelect.addEventListener("change", function(evt) {
-    var selectedVal = evt.target.value;
-    var selectPage = $(".counter").find('.current').text().trim();
-    sentAjaxRequest(selectPage, selectedVal, "order");
+    var selectPage = $(".counter")
+        .find(".current")
+        .text()
+        .trim();
+    sentAjaxRequest(selectPage);
 });
+
+$('.reset-btn').on('click', function() {
+    resetAllItems();
+    sentAjaxRequest(1);
+}); 
 
 /* pagination */
 var buttonItems = [].slice.call(stepButtons);
 buttonItems.forEach(function(item, idx) {
     item.addEventListener("click", function() {
         var dataVal = item.dataset.page;
-        sentAjaxRequest(dataVal, selectedVal = null, "pagination");
+        sentAjaxRequest(dataVal);
     });
 });
 
-function sentAjaxRequest(pageVal, selectedVal, typeVal) {
+function resetAllItems() {
+    $('form').trigger('reset');
+}
+
+function sentAjaxRequest(pageVal) {
     // filters
     var orderVal = $("#orderSelect").val();
     var sizeVal = $("#sizeSelect").val();
@@ -40,15 +55,15 @@ function sentAjaxRequest(pageVal, selectedVal, typeVal) {
     var page = 1;
 
     if (pageVal === "+1") {
-        pageTxt =  $(".counter")
+        pageTxt = $(".counter")
             .find(".current")
             .text()
             .trim();
-        
+
         allItem = $(".counter")
-        .find(".all")
-        .text()
-        .trim(); 
+            .find(".all")
+            .text()
+            .trim();
         page = parseInt(pageTxt) + 1;
 
         if (page > parseInt(allItem)) {
@@ -57,10 +72,10 @@ function sentAjaxRequest(pageVal, selectedVal, typeVal) {
     }
 
     if (pageVal === "-1") {
-        pageTxt =  $(".counter")
-        .find(".current")
-        .text()
-        .trim();
+        pageTxt = $(".counter")
+            .find(".current")
+            .text()
+            .trim();
         page = parseInt(pageTxt) - 1;
 
         if (page < 1) {
@@ -90,6 +105,7 @@ function sentAjaxRequest(pageVal, selectedVal, typeVal) {
         },
         success: function(result) {
             if (result) {
+                console.log(result);
                 $(".products__list").empty();
                 $(".products__list").append(result.data);
 
@@ -98,10 +114,13 @@ function sentAjaxRequest(pageVal, selectedVal, typeVal) {
                     .html(page);
 
                 var total = result.total;
-                $('.product-numbers').find('.value').text(total);
+                $(".product-numbers")
+                    .find(".value")
+                    .text(total);
                 total = Math.ceil(total / 8);
-                $(".counter").find('.all').text(total);
-
+                $(".counter")
+                    .find(".all")
+                    .text(total);
             } else {
                 $(".products__list").empty();
                 $(".products__list").append("Nincs találat!");
@@ -109,6 +128,11 @@ function sentAjaxRequest(pageVal, selectedVal, typeVal) {
         },
         error: function(err) {
             console.log(err);
+
+            if (err.responseText) {
+                $(".products__list").empty();
+                $(".products__list").append(err.responseText);
+            }
         }
     });
 }
