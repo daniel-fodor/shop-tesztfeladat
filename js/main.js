@@ -98,7 +98,7 @@ function sentAjaxRequest(pageVal, selectedVal, typeVal) {
                     .html(page);
 
                 var total = result.total;
-                $('product-numbers').find('.value').text(total);
+                $('.product-numbers').find('.value').text(total);
                 total = Math.ceil(total / 8);
                 $(".counter").find('.all').text(total);
 
