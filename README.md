@@ -1,6 +1,6 @@
 # Shop Tesztfeladat
 
-## Felhasznált technológiák: HTML5, CSS, JS, PHP, MYSQL (mysqli), Jquery
+## Felhasznált technológiák: HTML5, CSS3, JS, PHP, MYSQL (mysqli), Jquery
 
 ### Az alkalmazás futtatásához az alábbi lépéseket szükséges megtenni:
 
@@ -9,4 +9,4 @@
 3. Minta termékek felvétele az adatbázisba. Ehhez a _setup mappában található install.php fájlt szükséges futtatni.
 4. Ha minden sikeres, a főoldalon betöltődik a termékek listája és a szükséges UI elemek.
 
-Legutóbbi frissítés dátuma: 2020.03.01.
+Legutóbbi frissítés dátuma: 2020.03.04.
