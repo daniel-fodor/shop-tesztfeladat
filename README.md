@@ -9,4 +9,4 @@
 3. Minta termékek felvétele az adatbázisba. Ehhez a _setup mappában található install.php fájlt szükséges futtatni.
 4. Ha minden sikeres, a főoldalon betöltődik a termékek listája és a szükséges UI elemek.
 
-Legutóbbi frissítés dátuma: 2020.03.01.
+Legutóbbi frissítés dátuma: 2020.03.04.
